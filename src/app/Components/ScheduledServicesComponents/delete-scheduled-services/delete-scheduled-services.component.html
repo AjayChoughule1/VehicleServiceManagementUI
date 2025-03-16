@@ -1,0 +1,21 @@
+<div *ngIf="model" class="container">
+    <h2 class="mt-4 mb-4">Delete ScheduledService</h2>
+    <div class="mb-3">
+        <label for="scheduledServiceId" class="form-label">ScheduledService Id:</label>
+        <input type="text" id="scheduledServiceId" [(ngModel)]="model.ScheduledServiceId" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="scheduledDate" class="form-label">Scheduled Date:</label>
+        <input type="text" id="scheduledDate" [(ngModel)]="model.ScheduledDate" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="vehicleID" class="form-label">Vehicle ID:</label>
+        <input type="text" id="vehicleID" [(ngModel)]="model.VehicleID" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="serviceAdvisorID" class="form-label">ServiceAdvisor ID:</label>
+        <input type="text" id="serviceAdvisorID" [(ngModel)]="model.ServiceAdvisorID" class="form-control" disabled>
+    </div>
+
+    <button type="button" (click)="onFormSubmit()" class="btn btn-danger">Delete</button>
+</div>

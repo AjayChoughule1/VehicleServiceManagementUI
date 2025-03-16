@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2>Add ServiceRepresentative</h2>
+    <form (ngSubmit)="onFormSubmit()">
+      <div class="mb-3">
+        <label for="FirstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="FirstName" [(ngModel)]="model.FirstName" name="FirstName" required>
+      </div>
+      <div class="mb-3">
+        <label for="LastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="LastName" [(ngModel)]="model.LastName" name="LastName" required>
+      </div>
+      <div class="mb-3">
+        <label for="ContactNumber" class="form-label">Contact Number</label>
+        <input type="text" class="form-control" id="ContactNumber" [(ngModel)]="model.ContactNumber" name="ContactNumber" required>
+      </div>
+      <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="Email" [(ngModel)]="model.Email" name="Email" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  

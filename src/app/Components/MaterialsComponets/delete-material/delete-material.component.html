@@ -1,0 +1,17 @@
+<div *ngIf="model" class="container">
+    <h2 class="mt-4 mb-4">Delete Material</h2>
+    <div class="mb-3">
+        <label for="itemID" class="form-label">Item ID:</label>
+        <input type="text" id="itemID" [(ngModel)]="model.ItemID" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="itemName" class="form-label">Item Name:</label>
+        <input type="text" id="itemName" [(ngModel)]="model.ItemName" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="cost" class="form-label">Cost:</label>
+        <input type="text" id="cost" [(ngModel)]="model.Cost" class="form-control" disabled>
+    </div>
+
+    <button type="button" (click)="onFormSubmit()" class="btn btn-danger">Delete</button>
+</div>

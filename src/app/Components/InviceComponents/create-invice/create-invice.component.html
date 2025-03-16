@@ -1,0 +1,50 @@
+<div *ngIf="model" class="container">
+    <h2 class="mt-4 mb-4">Selected Vehicle</h2>
+    <div class="mb-3 row">
+        <div class="col">
+            <label for="vehicleId" class="form-label">Vehicle ID:</label>
+            <input type="text" id="vehicleId" [(ngModel)]="model.VehicleId" class="form-control" disabled>
+        </div>
+        <div class="col">
+            <label for="category" class="form-label">Category:</label>
+            <input type="text" id="category" [(ngModel)]="model.VehicleCategory" class="form-control" disabled>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col">
+            <label for="regNo" class="form-label">Registration Number:</label>
+            <input type="text" id="regNo" [(ngModel)]="model.VehicleRegNo" class="form-control" disabled>
+        </div>
+        <div class="col">
+            <label for="number" class="form-label">Vehicle Number:</label>
+            <input type="text" id="number" [(ngModel)]="model.VehicleNumber" class="form-control" disabled>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col">
+            <label for="model" class="form-label">Model:</label>
+            <input type="text" id="model" [(ngModel)]="model.VehicleModel" class="form-control" disabled>
+        </div>
+        <div class="col">
+            <label for="brand" class="form-label">Brand:</label>
+            <input type="text" id="brand" [(ngModel)]="model.VehicleBrand" class="form-control" disabled>
+        </div>
+    </div>
+    
+    <div class="mb-3 row">
+        <h2 class="mt-4 mb-4">Add Materials</h2>
+        <div class="col">
+            <select class="form-control" (change)="selectMaterials($event)" >
+                <option value="">--Select Materials--</option>
+                <option *ngFor="let mat of material" [value]="mat.ItemID">
+                  {{ mat.ItemName }}
+                </option>
+            </select>
+        </div>
+        <div class="col">
+            <input placeholder="Enter Material Quantity" type="number" [(ngModel)]="quantityValue" id="quantity" class="form-control">
+        </div>
+    </div>
+    <button type="button" (click)="onFormSubmit()" class="btn btn-info">Submit</button>
+
+</div>

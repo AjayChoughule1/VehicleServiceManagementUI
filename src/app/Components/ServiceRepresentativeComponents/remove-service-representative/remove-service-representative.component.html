@@ -1,0 +1,25 @@
+<div *ngIf="model" class="container">
+    <h2 class="mt-4 mb-4">Delete ServiceRepresentative</h2>
+    <div class="mb-3">
+        <label for="representativeID" class="form-label">Representative ID:</label>
+        <input type="text" id="representativeID" [(ngModel)]="model.RepresentativeID" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="model.FirstName" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" id="lastName" [(ngModel)]="model.LastName" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="contactNumber" class="form-label">Contact Number:</label>
+        <input type="text" id="contactNumber" [(ngModel)]="model.ContactNumber" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" id="email" [(ngModel)]="model.Email" class="form-control" disabled>
+    </div>
+
+    <button type="button" (click)="onFormSubmit()" class="btn btn-danger">Delete</button>
+</div>

@@ -1,0 +1,26 @@
+<div *ngIf="vehicle" class="container">
+    <h2 class="mt-4 mb-4">Edit Vehicle</h2>
+    <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" [(ngModel)]="vehicle.VehicleCategory" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="regNo" class="form-label">Registration Number:</label>
+        <input type="text" id="regNo" [(ngModel)]="vehicle.VehicleRegNo" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="model" class="form-label">Model:</label>
+        <input type="text" id="model" [(ngModel)]="vehicle.VehicleModel" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="brand" class="form-label">Brand:</label>
+        <input type="text" id="brand" [(ngModel)]="vehicle.VehicleBrand" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <input type="text" id="status" [(ngModel)]="vehicle.Status" class="form-control">
+    </div>
+    
+    <button type="button" (click)="saveVehicle()" class="btn btn-primary">Save</button>
+    
+</div>

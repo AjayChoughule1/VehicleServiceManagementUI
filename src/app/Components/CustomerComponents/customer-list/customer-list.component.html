@@ -1,0 +1,71 @@
+<ng-container  *ngIf="Customer">
+    <div class="container mt-5">
+    <button type="button" (click)="navigateToAddCustomerForm()" class="btn btn-primary">Add Customer</button>
+    <br/><br/>
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th>Customer Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <!-- <th>Password</th> -->
+          <th>Address</th>
+          <th>Mobile</th>
+          <!-- <th>Is Deleted</th>
+          <th>Created Date</th>
+          <th>Updated Date</th> -->
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of Customer">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ customer.CustomerId }}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.FirstName }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.LastName }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.Email }}</p>
+          </td>
+          <!-- <td>
+            <p class="fw-normal mb-1">{{ customer.Password }}</p>
+          </td> -->
+          <td>
+            <p class="fw-normal mb-1">{{ customer.Address }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.Mobile }}</p>
+          </td>
+          <!-- <td>
+            <span class=" badge-success rounded-pill d-inline">{{ customer.IsDeleted ? 'Yes' : 'No' }}</span>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.CreatedDate }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ customer.UpdatedDate }}</p>
+          </td> -->
+          <td>
+            <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="navigateToEditForm(customer.CustomerId)">
+              Edit
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="navigateToDeleteForm(customer.CustomerId)">
+                Delete
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  </ng-container>
+  

@@ -1,0 +1,129 @@
+
+<header>
+  <nav class="navbar navbar-expand-lg border-bottom border-top">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bold" routerLink="home"><span class="textBlur">V-S-M</span></a>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link fw-semibold text-uppercase text-black  me-1" routerLink="home">Home</a>
+        </li>
+      </ul>
+      <ng-container *ngIf="user !== undefined && user?.role?.includes('Admin')">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li routerLinkActive="links">
+                <a class="dropdown-item" routerLink="customerList">User Management</a>
+              </li>
+              <li routerLinkActive="links">
+                <a class="dropdown-item" routerLink="vehicleList">Vehicle Management</a>
+              </li>
+              <li routerLinkActive="links">
+                <a class="dropdown-item" routerLink="serviceRepresentative-list">ServiceRepresentative Management</a>
+              </li>
+              <li routerLinkActive="links">
+                <a class="dropdown-item" routerLink="scheduledServices-list">ScheduledService Management</a>
+              </li>
+              <li routerLinkActive="links">
+                <a class="dropdown-item" routerLink="material-list">Materials Management</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="user !== undefined && user?.role?.includes('Customer')">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Customer
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li routerLinkActive="links">
+              <a class="dropdown-item" routerLink="addVehicle">Add vehicle</a>
+            </li>
+            <li routerLinkActive="links">
+              <a class="dropdown-item" routerLink="vehicleList">Vehicle List</a>
+            </li>
+          </ul>
+        </li>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngIf="user !== undefined && user?.role?.includes('Service Advisor')">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Representative
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li routerLinkActive="links">
+              <a class="dropdown-item" routerLink="vehicleList">Vehicle List</a>
+            </li>
+          </ul>
+        </li>
+        </ul>
+      </ng-container>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item" routerLinkActive="links">
+            <ng-container *ngIf="user === undefined; else userBox">
+              <a class="nav-link fw-semibold text-uppercase text-black me-1" [routerLink]="['login']">Login</a>
+            </ng-container>
+          </li>
+          <ng-template #userBox>
+            <!-- <li class="nav-item">
+              <div class="navbar-brand fs-2 fw-bold" (click)="toggleUserBox()">
+                <img style="cursor: pointer;" src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
+                  alt="Your Company Logo" />
+              </div>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a
+                data-mdb-dropdown-init
+                class="nav-link dropdown-toggle d-flex align-items-center"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
+                  class="rounded-circle"
+                  height="30"
+                  alt="Portrait of a Woman"
+                  loading="lazy"
+                />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <span class="dropdown-item">{{ user?.email }}</span>
+                </li>          
+                <li>
+                  <a style="cursor: pointer;" class="dropdown-item" (click)="onLogout()">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="user-box" *ngIf="showUserBox">
+    <div class="email">{{ user?.email }}</div>
+    <div class="center">
+      <a  (click)="onLogout()" class="logout-link">Logout</a>
+    </div>
+  </div>
+   -->
+</header>

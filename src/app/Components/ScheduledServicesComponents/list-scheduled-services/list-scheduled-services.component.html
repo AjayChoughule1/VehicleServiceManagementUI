@@ -1,0 +1,42 @@
+<ng-container *ngIf="ScheduledService">
+    <table class="table align-middle mb-0 bg-white container mt-5">
+      <thead class="bg-light">
+        <tr>
+          <th>ScheduledService Id</th>
+          <th>Scheduled Date</th>
+          <th>Vehicle Id</th>
+          <th>ServiceAdvisor Id</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scheduledService of ScheduledService">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ scheduledService.ScheduledServiceId }}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ scheduledService.ScheduledDate }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ scheduledService.VehicleID }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ scheduledService.ServiceAdvisorID }}</p>
+          </td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="navigateToEditForm(scheduledService.ScheduledServiceId)">
+              Edit
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="navigateToDeleteForm(scheduledService.ScheduledServiceId)">
+                Delete
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>

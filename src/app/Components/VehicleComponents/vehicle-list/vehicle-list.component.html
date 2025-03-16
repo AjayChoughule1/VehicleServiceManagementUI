@@ -1,0 +1,98 @@
+<ng-container *ngIf="Vehicle">
+  <div class="container mt-5">
+    <div *ngIf="user !== undefined && user?.role?.includes('Admin')">
+      <button type="button" (click)="navigateToAddVehicleForm()" class="btn btn-primary">Add Vehicle</button>
+    </div>
+    <br /><br />
+    <table class="table align-middle mb-0 bg-white container">
+      <thead class="bg-light">
+        <tr>
+          <th>Vehicle Id</th>
+          <th>Category</th>
+          <th>Registration Number</th>
+          <th>Number</th>
+          <th>Model</th>
+          <th>Brand</th>
+          <th>Status</th>
+          <!-- <th>CustomerID</th> -->
+          <th *ngIf="user !== undefined && user?.role?.includes('Admin')">Actions</th>
+          <th>Representative</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of Vehicle">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{ vehicle.VehicleId }}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.VehicleCategory }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.VehicleRegNo }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.VehicleNumber }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.VehicleModel }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.VehicleBrand }}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ vehicle.Status }}</p>
+          </td>
+          <!-- <td>
+            <p class="fw-normal mb-1">{{ vehicle.CustomerId }}</p>
+          </td> -->
+          <td *ngIf="user !== undefined && user?.role?.includes('Admin')">
+            <button type="button" class="btn btn-warning btn-sm btn-rounded"
+              (click)="navigateToEditForm(vehicle.VehicleId)">
+              Edit
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger btn-sm btn-rounded"
+              (click)="navigateToDeleteForm(vehicle.VehicleId)">
+              Delete
+            </button>
+          </td>
+
+          <td *ngIf="user !== undefined && user?.role?.includes('Service Advisor'); else adminRole">
+            <button type="button" class="btn btn-success btn-sm btn-rounded" [disabled]="vehicle.Status === 'Completed'"
+              [innerText]="vehicle.Status === 'Completed' ? 'Action Taken' : 'Make-Action'"
+              (click)="addServiceAdviserInvice(vehicle.VehicleId)">
+            </button>
+          </td>
+
+          <!-- <ng-template #adminRole>
+            <td>
+              <button type="button" class="btn btn-success btn-sm btn-rounded"
+                [disabled]="vehicle.Status === 'In-Progress'"
+                [disabled]="vehicle.Status === 'Completed'"
+                [innerText]="vehicle.Status === 'In-Progress' ? 'AdviserAdded' : 'Add-Adviser'"
+                [innerText]="vehicle.Status === 'Completed' ? 'Action Taken' : 'Add-Adviser'"
+                (click)="addServiceRepresentative(vehicle.VehicleId)">
+              </button>
+            </td>
+          </ng-template> -->
+
+          <ng-template #adminRole>
+            <td>
+              <button type="button" class="btn btn-success btn-sm btn-rounded"
+                [disabled]="vehicle.Status === 'In-Progress' || vehicle.Status === 'Completed'"
+                (click)="addServiceRepresentative(vehicle.VehicleId)">
+                <ng-container *ngIf="vehicle.Status === 'Completed'">Action Taken</ng-container>
+                <ng-container *ngIf="vehicle.Status !== 'Completed'">{{ vehicle.Status === 'In-Progress' ? 'AdviserAdded' : 'Add-Adviser' }}</ng-container>
+              </button>
+            </td>
+          </ng-template>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>

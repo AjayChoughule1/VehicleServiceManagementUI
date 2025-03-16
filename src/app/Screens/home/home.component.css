@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    
+  }
+  .service-card {
+    margin-bottom: 20px;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    overflow: hidden;
+}
+.service-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.service-card {
+  margin-bottom: 20px;
+}
+
+
+

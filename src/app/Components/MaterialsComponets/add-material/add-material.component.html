@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h2>Add Materials</h2>
+    <form (ngSubmit)="onFormSubmit()">
+      <div class="mb-3">
+        <label for="ItemName" class="form-label">Item Name</label>
+        <input type="text" class="form-control" id="ItemName" [(ngModel)]="model.ItemName" name="ItemName" required>
+      </div>
+      <div class="mb-3">
+        <label for="Cost" class="form-label">Cost</label>
+        <input type="text" class="form-control" id="Cost" [(ngModel)]="model.Cost" name="Cost" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  

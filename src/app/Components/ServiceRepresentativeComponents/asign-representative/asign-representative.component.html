@@ -1,0 +1,37 @@
+<div *ngIf="model" class="container">
+    <h2 class="mt-4 mb-4">Vehicle Detalis</h2>
+    <!-- <div class="mb-3">
+        <label for="vehicleId" class="form-label">Vehicle ID:</label>
+        <input type="text" id="vehicleId" [(ngModel)]="model.VehicleId" class="form-control" disabled>
+    </div> -->
+    <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" [(ngModel)]="model.VehicleCategory" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="regNo" class="form-label">Registration Number:</label>
+        <input type="text" id="regNo" [(ngModel)]="model.VehicleRegNo" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="number" class="form-label">Vehicle Number:</label>
+        <input type="text" id="number" [(ngModel)]="model.VehicleNumber" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="model" class="form-label">Model:</label>
+        <input type="text" id="model" [(ngModel)]="model.VehicleModel" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="brand" class="form-label">Brand:</label>
+        <input type="text" id="brand" [(ngModel)]="model.VehicleBrand" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <select class="form-control" (change)="selectServiceRepresentative($event)">
+            <option value="">--Select Representative--</option>
+            <option *ngFor="let rep of serviceRepresentatives" [value]="rep.RepresentativeID">
+              {{ rep.FirstName + ' ' + rep.LastName }}
+            </option>
+          </select>
+    </div>
+
+    <button type="button" (click)="onFormSubmit()" class="btn btn-info">Save Details</button>
+</div>
